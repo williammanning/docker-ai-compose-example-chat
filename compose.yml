@@ -1,0 +1,25 @@
+services:
+  webui:
+    build:
+      context: .
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "3000:8080"
+    environment:
+      OPENAI_API_BASE_URLS: http://model-runner.docker.internal/engines/v1
+      OPENAI_API_KEYS: ''
+      WEBUI_NAME: "Bill's WebUI"
+    volumes:
+      - open-webui-data:/app/backend/data
+    depends_on:
+      - docker-model-runner
+
+  docker-model-runner:
+    provider:
+      type: model
+      options:
+        model: ai/gpt-oss
+
+
+volumes:
+  open-webui-data:
