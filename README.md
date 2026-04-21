@@ -1,2 +1,4 @@
 # docker-ai-compose-example-chat
-This is an example of using Docker Model Runner with WebUI for the model interface 
+
+This project is a simple example showing how to run a local AI chat setup with Docker.
+It demonstrates using Docker Model Runner for serving the model and Open WebUI as the chat interface.
